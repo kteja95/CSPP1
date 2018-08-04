@@ -6,6 +6,7 @@ for i in range(1, n+1, 1):
 	elif(i%5==0):
 		print("Buzz",end="")
 	elif(i%3==0 and i%5==0):
-		print("Fizz\nBuzz", end="")
+		print("Fizz")
+		print("Buzz")
 	else:
 		print(i,end="")
