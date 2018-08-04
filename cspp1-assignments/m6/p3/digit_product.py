@@ -22,7 +22,7 @@ if NUM == 8:
 if NUM == 9:
     print(9)
 else:
-    while NUM != 0 and NUM > 9:
+    while NUM != 0 and NUM > 9 or NUM < 0:
         REM = NUM%10
         if REM == 0:
             COUNT = COUNT+1
