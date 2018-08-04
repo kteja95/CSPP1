@@ -3,7 +3,7 @@ NUM = int(input())
 COUNT = 0
 PROD = 1
 COUNT2 = 0
-while NUM != 0:
+while NUM != 0 or NUM < 0:
     REM = NUM%10
     if REM == 0:
         COUNT = COUNT+1
