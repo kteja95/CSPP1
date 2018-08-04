@@ -9,4 +9,4 @@ for i in range(1, NUM+1, 1):
         print("Fizz")
         print("Buzz")
     else:
-        print(i, end="")
+        print(i)
