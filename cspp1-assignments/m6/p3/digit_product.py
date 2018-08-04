@@ -1,22 +1,20 @@
 '''GIVEN A NUMBER, FIND THE PRODUCT OF THE DIGITS'''
 NUM = int(input())
+COUNT = 0
 PROD = 1
-ZERONUM = 0
-ZEROREM = 0
-NONZEROREM = 0
+COUNT2 = 0
 while NUM != 0:
     REM = NUM%10
     if REM == 0:
-        ZEROREM = ZEROREM+1
+        COUNT = COUNT+1
         break
     else:
         PROD = PROD*REM
         NUM = NUM//10
-        NONZEROREM = NONZEROREM+1
-if ZERONUM == 0:
+        COUNT2 = COUNT2 + 1
+if NUM == 0:
     print(0)
-elif ZEROREM > 0:
+if COUNT > 0:
     print(0)
-else:
+elif COUNT2 > 0:
     print(PROD)
-    
