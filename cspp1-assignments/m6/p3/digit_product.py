@@ -1,6 +1,5 @@
 '''GIVEN A NUMBER, FIND THE PRODUCT OF THE DIGITS'''
 NUM = int(input())
-REM = 0
 PROD = 1
 while NUM > 0:
     REM = NUM%10
