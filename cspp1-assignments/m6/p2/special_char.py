@@ -3,7 +3,7 @@ STR1 = input()
 STR2 = " "
 for i in STR1:
     if i in "!@#$%^&*":
-        STR1 = ""
+        STR2 = ""
     else:
         STR2 += i
 print(STR2)
