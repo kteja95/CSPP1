@@ -6,4 +6,4 @@ for i in STR1:
         STR1 = "  "
     else:
         STR2 += i
-print(STR2, end=" ")
+print(STR1, end=" ")
