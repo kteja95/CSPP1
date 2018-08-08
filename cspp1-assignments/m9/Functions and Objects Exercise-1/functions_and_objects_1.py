@@ -3,10 +3,8 @@
 
 
 def apply_to_each(L, f):
-	for i in range(len(L)):
-		L[i] = f(L[i])
-	print(L)
-
+	print(list(map(f,L)))
+	
 
     
 
