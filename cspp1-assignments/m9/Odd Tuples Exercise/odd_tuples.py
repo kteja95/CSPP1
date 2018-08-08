@@ -4,15 +4,15 @@
 
 
 def oddTuples(aTup):
-	newTup = ()
-	temp=0
-	count=0
-	for i in range(len(aTup)):
-		if i%2==0:
-			count = count+1
-		else:
-			newTup+= aTup[i],
-	return newTup
+    newTup = ()
+    temp=0
+    count=0
+    for i in range(len(aTup)):
+        if i%2==0:
+            count = count+1
+        else:
+            newTup+= aTup[i],
+    return newTup
 
   
     
