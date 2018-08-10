@@ -18,7 +18,12 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    for i in word:
+        hand[i] = hand.get(i,0) - 1
+    for i in hand.keys():
+        for j in range(hand[i]):
+             print(i,)             
+    return (hand)  
     
 
 def main():
