@@ -57,7 +57,7 @@ def getFrequencyDict(sequence):
 #
 # Problem #1: Scoring a word
 #
-def getWordScore(word):
+def getWordScore(word, n):
     """
     Returns the score for a word. Assumes the word is a valid word.
 
@@ -72,16 +72,16 @@ def getWordScore(word):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    n = 7
     score = 0
     for i in word:
         score = score+SCRABBLE_LETTER_VALUES[i]
-    if len(word)>n:
-        score = score*len(word)+50
+    score*=len(word)
+    if len(word)==n:
+        score = score+50
         return score
     else:
         return score
-  
+   
 
 
 #
@@ -153,6 +153,12 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)
     returns: dictionary (string -> int)
     """
+    for i in word:
+        hand[i] = hand.get(i,0) - 1
+    #for i in hand.keys():
+        #for j in range(hand[i]):
+             print(i,)             
+    return (hand)  
    
 
 
@@ -170,6 +176,15 @@ def isValidWord(word, hand, wordList):
     hand: dictionary (string -> int)
     wordList: list of lowercase strings
     """
+    xhand = hand
+    for i in word:
+        if xhand.get(i):
+            xhand[i] = xhand[i] - 1
+        else:
+            return False
+    if word not in wordList:
+        return False
+    return True    
 
 
 
