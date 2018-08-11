@@ -198,6 +198,10 @@ def calculateHandlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
+    totalletters = 0
+    for value in hand:
+        totalletters += hand[value]
+    return totalletters 
    
 
 

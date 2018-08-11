@@ -28,7 +28,7 @@ def get_word_score(word, n):
     score*=len(word)
     if len(word)==n:
         score = score+50
-        return score
+            return score
     else:
         return score
 

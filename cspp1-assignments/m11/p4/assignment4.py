@@ -9,7 +9,10 @@ def calculateHandlen(hand):
     hand: dictionary (string int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
+    totalletters = 0
+    for value in hand:
+        totalletters += hand[value]
+    return totalletters
     
 
 def main():
