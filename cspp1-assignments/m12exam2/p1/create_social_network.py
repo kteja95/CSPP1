@@ -40,7 +40,7 @@ def create_social_network(data):
             key, value = line.split(None, 1)  
             dict_[key] = value.split("follows")
     for i in dict_:
-        if dict_[i]=="follows":
+        if dict_[i]==" follows ":
             dict_[i]=dict_[i+1]
         else:
             continue
