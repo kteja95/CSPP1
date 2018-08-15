@@ -3,17 +3,7 @@
     Read about poker hands here.
     https://en.wikipedia.org/wiki/List_of_poker_hands
 '''
-
-def is_straight(hand):
-    '''
-        How do we find out if the given hand is a straight?
-        The hand has a list of cards represented as strings.
-        There are multiple ways of checking if the hand is a straight.
-        Do we need both the characters in the string? No.
-        The first character is good enough to determine a straight
-        Think of an algorithm: given the card face value how to check if it a straight
-        Write the code for it and return True if it is a straight else return False
-    '''
+def sort(hand):
     count = len(hand)
     newhand = []
     for ele in range(count):
@@ -29,29 +19,25 @@ def is_straight(hand):
             newhand.append(10)
         else:
             newhand.append(int(hand[ele][0]))
-    newhand.sort()
+    return newhand
+
+def is_straight(hand):
+    '''
+        How do we find out if the given hand is a straight?
+        The hand has a list of cards represented as strings.
+        There are multiple ways of checking if the hand is a straight.
+        Do we need both the characters in the string? No.
+        The first character is good enough to determine a straight
+        Think of an algorithm: given the card face value how to check if it a straight
+        Write the code for it and return True if it is a straight else return False
+    '''
+    count = len(hand)
+    x = sorted(sort(hand))
     for ele in range(count-1):
-        if newhand[ele+1]-newhand[ele]!=1:
+        if x[ele+1]-x[ele]!=1:
             return False
     return True
 
-
-    
-
-    
-
-
-        
-
-
-            
-                
-                
-           
-                
-                
-    
-        
 
 def is_flush(hand):
     '''
@@ -68,6 +54,62 @@ def is_flush(hand):
             return False
     return True
 
+def is_twopair(hand):
+    ''' this function compares the ranks a returns the hand with a two pair'''
+    x = sorted(sort(hand))
+    y = set(x)
+    if len(x)-len(y)==2:
+        return True
+    return False
+
+def is_fullhouse(hand):
+    '''This function calcultes hand rank for fullhouse'''
+    count = 0
+    i = 0
+    x = sorted(sort(hand))
+    if x[i]==x[i+1]==x[i+2]==x[i+3]==x[i+4]:
+        count+=1
+    elif x[i+3]==x[i+4] and x[i]==x[i+1]==x[i+2]:
+        count+=1
+    if count==1:
+        return True
+    return False
+
+def is_threeofakind(hand):
+    '''This fucntion calcultes the hand rank for three of a kind hand'''
+    count = 0
+    x = sorted(sort(hand))
+    for i in range(len(x)-2):
+        if x[i]==x[i+1]==x[i+2]:
+            count+=1
+    if count == 1:
+        return True
+    return False
+
+def is_onepair(hand):
+    '''This function estimates one pair rank '''
+    x=sorted(sort(hand))
+    y=set(x)
+    if len(x)-len(y)==1:
+        return True
+    return False
+
+def is_fourofakind(hand):
+    '''this function calcultes the rank for the four of a kind'''
+    count = 0
+    x = sorted(sort(hand))
+    for i in range(len(x)-3):
+        if x[i]==x[i+1]==x[i+2]==x[i+3]:
+            count+=1
+    if count==1:
+        return True
+    return False
+
+
+
+
+
+
     
 
 def hand_rank(hand):
@@ -78,12 +120,26 @@ def hand_rank(hand):
         The first version should identify if the given hand is a straight
         or a flush or a straight flush.
     '''
-    if is_flush(hand) and is_straight(hand):
+    if is_threeofakind(hand):
         return 3
-    elif is_flush(hand):
-        return 2
-    elif is_straight(hand):
+    if is_onepair(hand):
         return 1
+    if is_twopair(hand):
+        return 2
+    if is_fullhouse(hand):
+        return 7
+    if is_fourofakind(hand):
+        return 4
+    if is_flush(hand) and is_straight(hand):
+        return 8
+    if is_flush(hand):
+        return 6
+    if is_straight(hand):
+        return 5
+    return 0
+
+
+
     # By now you should have seen the way a card is represented.
     # If you haven't then go the main or poker function and print the hands
     # Each card is coded as a 2 character string. Example Kind of Hearts is KH
