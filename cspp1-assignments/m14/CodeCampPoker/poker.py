@@ -58,7 +58,7 @@ def is_twopair(hand):
     ''' this function compares the ranks a returns the hand with a two pair'''
     xnewlist = sorted(sort(hand))
     ynewlist = set(xnewlist)
-    if len(x)-len(y)==2:
+    if len(xnewlist)-len(ynewlist)==2:
         return True
     return False
 
