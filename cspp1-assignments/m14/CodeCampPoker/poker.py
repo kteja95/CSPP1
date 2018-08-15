@@ -34,7 +34,7 @@ def is_straight(hand):
     count = len(hand)
     xnewlist = sorted(sort(hand))
     for ele in range(count-1):
-        if x[ele+1]-x[ele]!=1:
+        if xnewlist[ele+1]-xnewlist[ele]!=1:
             return False
     return True
 
