@@ -32,7 +32,7 @@ def is_straight(hand):
         Write the code for it and return True if it is a straight else return False
     '''
     count = len(hand)
-    x = sorted(sort(hand))
+    xnewlist = sorted(sort(hand))
     for ele in range(count-1):
         if x[ele+1]-x[ele]!=1:
             return False
@@ -56,8 +56,8 @@ def is_flush(hand):
 
 def is_twopair(hand):
     ''' this function compares the ranks a returns the hand with a two pair'''
-    x = sorted(sort(hand))
-    y = set(x)
+    xnewlist = sorted(sort(hand))
+    ynewlist = set(xnewlist)
     if len(x)-len(y)==2:
         return True
     return False
@@ -66,10 +66,10 @@ def is_fullhouse(hand):
     '''This function calcultes hand rank for fullhouse'''
     count = 0
     i = 0
-    x = sorted(sort(hand))
-    if x[i]==x[i+1]==x[i+2]==x[i+3]==x[i+4]:
+    xnewlist = sorted(sort(hand))
+    if xnewlist[i]==xnewlist[i+1]==xnewlist[i+2]==xnewlist[i+3]==xnewlist[i+4]:
         count+=1
-    elif x[i+3]==x[i+4] and x[i]==x[i+1]==x[i+2]:
+    elif xnewlist[i+3]==xnewlist[i+4] and xnewlist[i]==xnewlist[i+1]==xnewlist[i+2]:
         count+=1
     if count==1:
         return True
@@ -78,9 +78,9 @@ def is_fullhouse(hand):
 def is_threeofakind(hand):
     '''This fucntion calcultes the hand rank for three of a kind hand'''
     count = 0
-    x = sorted(sort(hand))
-    for i in range(len(x)-2):
-        if x[i]==x[i+1]==x[i+2]:
+    xnewlist = sorted(sort(hand))
+    for i in range(len(xnewlist)-2):
+        if xnewlist[i]==xnewlist[i+1]==xnewlist[i+2]:
             count+=1
     if count == 1:
         return True
@@ -88,29 +88,22 @@ def is_threeofakind(hand):
 
 def is_onepair(hand):
     '''This function estimates one pair rank '''
-    x=sorted(sort(hand))
-    y=set(x)
-    if len(x)-len(y)==1:
+    xnewlist=sorted(sort(hand))
+    ynewlist=set(xnewlist)
+    if len(xnewlist)-len(ynewlist)==1:
         return True
     return False
 
 def is_fourofakind(hand):
     '''this function calcultes the rank for the four of a kind'''
     count = 0
-    x = sorted(sort(hand))
-    for i in range(len(x)-3):
-        if x[i]==x[i+1]==x[i+2]==x[i+3]:
+    xnewlist = sorted(sort(hand))
+    for i in range(len(xnewlist)-3):
+        if xnewlist[i]==xnewlist[i+1]==xnewlist[i+2]==xnewlist[i+3]:
             count+=1
     if count==1:
         return True
     return False
-
-
-
-
-
-
-    
 
 def hand_rank(hand):
     '''
