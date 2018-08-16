@@ -142,9 +142,8 @@ def hand_rank(hand):
         return 6
     if is_straight(hand):
         return 5
-    # else:
-    #     return max(hand, key=is_highcard)
-
+    if is_highcard(hand):
+        return 9 
 
 
 
