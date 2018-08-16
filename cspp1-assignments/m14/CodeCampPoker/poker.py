@@ -147,7 +147,7 @@ def hand_rank(hand):
     if is_twopair(hand):
         return 2
     if is_onepair(hand)!=100:
-        return 1
+        return is_onepair(hand)
     #if not (is_straight(hand) and is_flush(hand) and is_fourofakind(hand) and is_fullhouse(hand) and is_onepair(hand) and is_twopair(hand) and is_threeofakind(hand)):
     return is_highcard(hand)
 
