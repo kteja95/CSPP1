@@ -58,7 +58,7 @@ def is_twopair(hand):
     ''' this function compares the ranks a returns the hand with a two pair'''
     xnewlist = sorted(sort(hand))
     ynewlist = set(xnewlist)
-    if len(xnewlist)-len(ynewlist) == 2 and not is_highcard(hand):
+    if len(xnewlist)-len(ynewlist) == 2:
         return True
     return False
 
@@ -80,7 +80,7 @@ def is_threeofakind(hand):
     count = 0
     xnewlist = sorted(sort(hand))
     for i in range(len(xnewlist)-2):
-        if xnewlist[i] == xnewlist[i+1] == xnewlist[i+2] and not is_highcard(hand):
+        if xnewlist[i] == xnewlist[i+1] == xnewlist[i+2]:
             count+=1
     if count == 1:
         return True
@@ -103,7 +103,7 @@ def is_onepair(hand):
     '''This function estimates one pair rank '''
     xnewlist=sorted(sort(hand))
     ynewlist=set(xnewlist)
-    if len(xnewlist)-len(ynewlist) == 1 and not is_highcard(hand):
+    if len(xnewlist)-len(ynewlist) == 1:
         return True
     return False
 
@@ -112,7 +112,7 @@ def is_fourofakind(hand):
     count = 0
     xnewlist = sorted(sort(hand))
     for i in range(len(xnewlist)-3):
-        if xnewlist[i] == xnewlist[i+1] == xnewlist[i+2] == xnewlist[i+3] and not is_highcard(hand):
+        if xnewlist[i] == xnewlist[i+1] == xnewlist[i+2] == xnewlist[i+3]:
             count+=1
     if count == 1:
         return True
