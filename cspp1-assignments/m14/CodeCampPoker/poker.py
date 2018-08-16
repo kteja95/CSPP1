@@ -85,16 +85,6 @@ def is_threeofakind(hand):
     if count == 1:
         return True
     return False
-def is_fiveofakind(hand):
-    '''This function returns the highest hand in poker possible'''
-    count = 0
-    xnewlist = sorted(sort(hand))
-    for i in range(len(xnewlist)-4):
-        if xnewlist[i] == xnewlist[i+1] == xnewlist[i+2] == xnewlist[i+3] == xnewlist[i+4]:
-            count+=1
-    if count == 1:
-        return True
-    return False
 def is_highcard(hand):
     '''This function implements the high card probability in a hand'''
     xnewlist = sorted(sort(hand))
@@ -128,26 +118,24 @@ def hand_rank(hand):
         or a flush or a straight flush.
     '''
     if is_threeofakind(hand):
-        return 6
-    if is_onepair(hand):
-        return 8
-    if is_twopair(hand):
-        return 7
-    if is_fullhouse(hand):
         return 3
-    if is_fourofakind(hand):
-        return 2
-    if is_flush(hand) and is_straight(hand):
+    if is_onepair(hand):
         return 1
-    if is_flush(hand):
+    if is_twopair(hand):
+        return 2
+    if is_fullhouse(hand):
+        return 7
+    if is_fourofakind(hand):
         return 4
+    if is_flush(hand) and is_straight(hand):
+        return 8
+    if is_flush(hand):
+        return 6
     if is_straight(hand):
         return 5
-    if is_fiveofakind(hand):
+    if is_highcard(hand):
         return 0
-    else:
-        is_highcard(hand)
-        return 9
+
 
 
 
