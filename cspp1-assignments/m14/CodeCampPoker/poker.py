@@ -143,7 +143,7 @@ def hand_rank(hand):
     if is_straight(hand):
         return 5
     if is_highcard(hand):
-        return 9 
+        return 0 
 
 
 
