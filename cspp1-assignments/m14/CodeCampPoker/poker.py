@@ -98,7 +98,7 @@ def is_fiveofakind(hand):
 def is_highcard(hand):
     '''This function implements the high card probability in a hand'''
     xnewlist = sorted(sort(hand))
-    return xnewlist[len(xnewlist)]
+    return xnewlist[len(xnewlist)-1]
 
 def is_onepair(hand):
     '''This function estimates one pair rank '''
