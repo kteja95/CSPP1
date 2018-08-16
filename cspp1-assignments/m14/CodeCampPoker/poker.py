@@ -85,10 +85,10 @@ def is_threeofakind(hand):
     if count == 1:
         return True
     return False
-# def is_highcard(hand):
-#     '''This function implements the high card probability in a hand'''
-#     xnewlist = sorted(sort(hand))
-#     return xnewlist[len(xnewlist)-1]
+def is_highcard(hand):
+    '''This function implements the high card probability in a hand'''
+    xnewlist = sorted(sort(hand))
+    return xnewlist[len(xnewlist)-1]
 
     # high = [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     # differences = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
