@@ -39,20 +39,20 @@ def is_straight(hand):
     return True
 
 
-def is_flush(hand):
-    '''
-        How do we find out if the given hand is a flush?
-        The hand has a list of cards represented as strings.
-        Do we need both the characters in the string? No.
-        The second character is good enough to determine a flush
-        Think of an algorithm: given the card suite how to check if it is a flush
-        Write the code for it and return True if it is a flush else return False
-    '''
-    count = len(hand)
-    for ele in range(count-1):
-        if hand[ele][1]!=hand[ele+1][1]:
-            return False
-    return True
+# def is_flush(hand):
+#     '''
+#         How do we find out if the given hand is a flush?
+#         The hand has a list of cards represented as strings.
+#         Do we need both the characters in the string? No.
+#         The second character is good enough to determine a flush
+#         Think of an algorithm: given the card suite how to check if it is a flush
+#         Write the code for it and return True if it is a flush else return False
+#     '''
+#     count = len(hand)
+#     for ele in range(count-1):
+#         if hand[ele][1]!=hand[ele+1][1]:
+#             return False
+#     return True
 
 def is_twopair(hand):
     ''' this function compares the ranks a returns the hand with a two pair'''
@@ -89,7 +89,7 @@ def is_highcard(hand):
     '''This function implements the high card probability in a hand'''
     xnewlist = sorted(sort(hand))
     length = len(xnewlist)
-    if length == 5 and not is_flush(hand):
+    if length == 5:
         return max(xnewlist)/100
     return False
 
@@ -129,13 +129,13 @@ def hand_rank(hand):
         The first version should identify if the given hand is a straight
         or a flush or a straight flush.
     '''
-    if is_flush(hand) and is_straight(hand):
+    if is_threeofakind(hand) and is_onepair(hand) and is_straight(hand):
         return 8
     if is_fourofakind(hand):
         return 7
     if is_fullhouse(hand):
         return 6
-    if is_flush(hand):
+    if is_threeofakind(hand) and is_onepair(hand):
         return 5
     if is_straight(hand):
         return 4
