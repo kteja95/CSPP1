@@ -80,7 +80,7 @@ def is_threeofakind(hand):
     count = 0
     xnewlist = sorted(sort(hand))
     for i in range(len(xnewlist)-2):
-        if xnewlist[i] == xnewlist[i+1] == xnewlist[i+2]:
+        if xnewlist[i] == xnewlist[i+1] == xnewlist[i+2] and not is_highcard(hand):
             count+=1
     if count == 1:
         return True
@@ -103,7 +103,7 @@ def is_onepair(hand):
     '''This function estimates one pair rank '''
     xnewlist=sorted(sort(hand))
     ynewlist=set(xnewlist)
-    if len(xnewlist)-len(ynewlist) == 1:
+    if len(xnewlist)-len(ynewlist) == 1 and not is_highcard(hand):
         return True
     return False
 
