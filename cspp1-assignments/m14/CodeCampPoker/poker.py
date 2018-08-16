@@ -19,7 +19,7 @@ def sort(hand):
             newhand.append(10)
         else:
             newhand.append(int(hand[ele][0]))
-    return newhand
+    return newhand  
 
 def is_straight(hand):
     '''
@@ -104,10 +104,13 @@ def is_highcard(hand):
 
 def is_onepair(hand):
     '''This function estimates one pair rank '''
+    c=0
     xnewlist=sorted(sort(hand))
     ynewlist=set(xnewlist)
     if len(xnewlist)-len(ynewlist) == 1:
-        return True
+        for i in ynewlist:
+            if xnewlist.count(i) == 2:
+                return True
     return False
 
 def is_fourofakind(hand):
@@ -143,7 +146,7 @@ def hand_rank(hand):
         return 3
     if is_twopair(hand):
         return 2
-    if is_onepair(hand):
+    if is_onepair(hand)!=bool(0):
         return 1
     #if not (is_straight(hand) and is_flush(hand) and is_fourofakind(hand) and is_fullhouse(hand) and is_onepair(hand) and is_twopair(hand) and is_threeofakind(hand)):
     return is_highcard(hand)
