@@ -132,7 +132,7 @@ def hand_rank(hand):
         return 1
     if is_twopair(hand):
         return 2
-    if is_fullhouse(hand):
+    if is_threeofakind(hand) and is_onepair(hand):
         return 7
     if is_fourofakind(hand):
         return 4
@@ -182,7 +182,7 @@ def poker(hands):
     # hand_rank is a function passed to max
     # hand_rank takes a hand and returns its rank
     # max uses the rank returned by hand_rank and returns the best hand
-    return min(hands, key=hand_rank)
+    return max(hands, key=hand_rank)
 
 if __name__ == "__main__":
     # read the number of test cases 
