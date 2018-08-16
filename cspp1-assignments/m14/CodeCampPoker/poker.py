@@ -34,7 +34,7 @@ def is_straight(hand):
     count = len(hand)
     xnewlist = sorted(sort(hand))
     for ele in range(count-1):
-        if xnewlist[ele+1]-xnewlist[ele]!=1 and not is_highcard(hand):
+        if xnewlist[ele+1]-xnewlist[ele]!=1:
             return False
     return True
 
@@ -58,7 +58,7 @@ def is_twopair(hand):
     ''' this function compares the ranks a returns the hand with a two pair'''
     xnewlist = sorted(sort(hand))
     ynewlist = set(xnewlist)
-    if len(xnewlist)-len(ynewlist) == 2:
+    if len(xnewlist)-len(ynewlist) == 2 and not is_highcard(hand):
         return True
     return False
 
@@ -112,7 +112,7 @@ def is_fourofakind(hand):
     count = 0
     xnewlist = sorted(sort(hand))
     for i in range(len(xnewlist)-3):
-        if xnewlist[i] == xnewlist[i+1] == xnewlist[i+2] == xnewlist[i+3]:
+        if xnewlist[i] == xnewlist[i+1] == xnewlist[i+2] == xnewlist[i+3] and not is_highcard(hand):
             count+=1
     if count == 1:
         return True
