@@ -40,7 +40,7 @@ def similarity(dict1, dict2):
             common_dict[items] = [0, 1]
     # print(common_dict)
     for keys in common_dict:
-        sums = (common_dict[keys][0]*common_dict[keys][1])
+        sums =sums+(common_dict[keys][0]*common_dict[keys][1])
     numerator = sums
     for keys in common_dict:
         temp=temp+(common_dict[keys][0]**2)
