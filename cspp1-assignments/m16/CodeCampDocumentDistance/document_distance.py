@@ -16,17 +16,17 @@ def similarity(dict1, dict2):
     words2 = []
     str1 = dict1.lower()
     str2 = dict2.lower()
-    # t = ["" "'a'!@#$%^&*()"]
-    new1 = re.sub(r'[^a-zA-Z ]', '', str1).strip().split()
-    new2 = re.sub(r'[^a-zA-Z ]', '', str2).strip().split()
+    t = ["" "'a'!@#$%^&*()"]
+    # new1 = re.sub(r'[^a-zA-Z ]', '', str1).strip().split()
+    # new2 = re.sub(r'[^a-zA-Z ]', '', str2).strip().split()
     common_dict = {}
     # d1 = {}
     # d2 = {}
-    for characters in new1:
-        if characters not in stop:
+    for characters in str1:
+        if characters not in stop and t:
             words1.append(characters)
-    for lines in new2:
-        if lines not in stop:
+    for lines in str2:
+        if lines not in stop and t:
             words2.append(lines)
     for name in words1:
         if name in common_dict:
