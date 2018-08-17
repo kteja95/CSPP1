@@ -17,8 +17,8 @@ def similarity(dict1, dict2):
     str1 = dict1.lower()
     str2 = dict2.lower()
     # t = ["" "'a'!@#$%^&*()"]
-    new1 = re.sub(r'[^a-zA-Z ]', '', str1).strip().split()
-    new2 = re.sub(r'[^a-zA-Z ]', '', str2).strip().split()
+    new1 = re.sub(r'[^a-z ]', '', str1).strip().split()
+    new2 = re.sub(r'[^a-z ]', '', str2).strip().split()
     common_dict = {}
     # d1 = {}
     # d2 = {}
