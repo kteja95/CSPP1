@@ -1,7 +1,7 @@
 '''
     Document Distance - A detailed description is given in the PDF
 '''
-import math
+import math, re
 def similarity(dict1, dict2):
     '''
         Compute the document distance as given in the PDF
@@ -16,15 +16,17 @@ def similarity(dict1, dict2):
     words2 = []
     str1 = dict1.lower()
     str2 = dict2.lower()
-    t = ["" "'a'!@#$%^&*()"]
+    # t = ["" "'a'!@#$%^&*()"]
+    new1 = re.sub(r'[^a-zA-Z ]', '', str1).strip().split()
+    new2 = re.sub(r'[^a-zA-Z ]', '', str2).strip().split()
     common_dict = {}
     # d1 = {}
     # d2 = {}
-    for characters in str1:
-        if characters not in stop and t:
+    for characters in new1:
+        if characters not in stop:
             words1.append(characters)
-    for lines in str2:
-        if lines not in stop and t:
+    for lines in new2:
+        if lines not in stop:
             words2.append(lines)
     for name in words1:
         if name in common_dict:
