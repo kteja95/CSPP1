@@ -64,26 +64,24 @@ def build_search_index(docs):
     listofwords = []
     listofwords = word_list(docs)
     searchindex = {}
+    newlist = []
     for words in listofwords:
         if words not in stop:
-            if words not in searchindex:
-                obj = enumerate(searchindex.items())
-                searchindex[words] = obj
+            newlist.append(words)
+
+    for words in newlist:
+        searchindex[words] = enumerate(words, 0)
     return searchindex
-
-
-
-
 
 # helper function to print the search index
 # use this to verify how the search index looks
-# def print_search_index(index):
-#     '''
-#         print the search index
-#     '''
-#     keys = sorted(index.keys())
-#     for key in keys:
-#         print(key, " - ", index[key])
+def print_search_index(index):
+    '''
+        print the search index
+    '''
+    keys = sorted(index.keys())
+    for key in keys:
+        print(key, " - ", index[key])
 
 # main function that loads the docs from files
 def main():
@@ -100,8 +98,6 @@ def main():
         i += 1
 
     # call print to display the search index
-    # print_search_index(build_search_index(documents))
-    print(build_search_index(documents))
-
+    print(print_search_index(build_search_index(documents)))
 if __name__ == '__main__':
     main()
