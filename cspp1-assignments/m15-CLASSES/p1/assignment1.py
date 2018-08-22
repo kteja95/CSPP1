@@ -260,7 +260,7 @@ class CiphertextMessage(Message):
             hwc = wc
             bshift = (string, decrypt_str)
 
-        # return bshift
+         return bshift
 
 
 ### DO NOT MODIFY THIS METHOD ###
