@@ -230,37 +230,37 @@ class CiphertextMessage(Message):
         '''
         Message.__init__(self, text)
 
-    def decrypt_message(self):
-        '''
-        Decrypt self.message_text by trying every possible shift value
-        and find the "best" one. We will define "best" as the shift that
-        creates the maximum number of real words when we use apply_shift(shift)
-        on the message text. If s is the original shift value used to encrypt
-        the message, then we would expect 26 - s to be the best shift value
-        for decrypting it.
+    # def decrypt_message(self):
+    #     '''
+    #     Decrypt self.message_text by trying every possible shift value
+    #     and find the "best" one. We will define "best" as the shift that
+    #     creates the maximum number of real words when we use apply_shift(shift)
+    #     on the message text. If s is the original shift value used to encrypt
+    #     the message, then we would expect 26 - s to be the best shift value
+    #     for decrypting it.
 
-        Note: if multiple shifts are  equally good such that they all create
-        the maximum number of you may choose any of those shifts (and their
-        corresponding decrypted messages) to return
+    #     Note: if multiple shifts are  equally good such that they all create
+    #     the maximum number of you may choose any of those shifts (and their
+    #     corresponding decrypted messages) to return
 
-        Returns: a tuple of the best shift value used to decrypt the message
-        and the decrypted message text using that shift value
-        '''
-        bshift = ()
-        hwc = 0
-        for string in range(26):
-            wc = 0
-            decrypt_str = self.apply_shift(string)
-            string_list = decrypt_str.split(' ')
+    #     Returns: a tuple of the best shift value used to decrypt the message
+    #     and the decrypted message text using that shift value
+    #     '''
+    #     bshift = ()
+    #     hwc = 0
+    #     for string in range(26):
+    #         wc = 0
+    #         decrypt_str = self.apply_shift(string)
+    #         string_list = decrypt_str.split(' ')
 
-        for index in string_list:
-            if is_word(self.valid_words, index):
-                wc+=1
-        if wc>hwc:
-            hwc = wc
-            bshift = (string, decrypt_str)
+    #     for index in string_list:
+    #         if is_word(self.valid_words, index):
+    #             wc+=1
+    #     if wc>hwc:
+    #         hwc = wc
+    #         bshift = (string, decrypt_str)
 
-        return bshift
+    #     return bshift
 
 
 ### DO NOT MODIFY THIS METHOD ###
