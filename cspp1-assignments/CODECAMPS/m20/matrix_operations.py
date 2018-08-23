@@ -1,12 +1,11 @@
+'''THIS PROGRAM DOES THE BASIC MATRIX OPERATIONS'''
 import copy
 def mult_matrix(matrix1, matrix2, temp1, temp2):
-    '''
-        check if the matrix1 columns = matrix2 rows
+    '''check if the matrix1 columns = matrix2 rows
         mult the matrices and return the result matrix
         print an error message if the matrix shapes are not valid for mult
         and return None
-        error message should be "Error: Matrix shapes invalid for mult"
-    '''
+        error message should be "Error: Matrix shapes invalid for mult"'''
     if temp1 != temp2:
         print("Error: Matrix shapes invalid for mult")
         return None
@@ -21,17 +20,12 @@ def mult_matrix(matrix1, matrix2, temp1, temp2):
         mul.append(temp)
     return mul
 
-    
-
-
 def add_matrix(matrix1, matrix2):
-    '''
-        check if the matrix shapes are similar
+    '''check if the matrix shapes are similar
         add the matrices and return the result matrix
         print an error message if the matrix shapes are not valid for addition
         and return None
-        error message should be "Error: Matrix shapes invalid for addition"
-    '''
+        error message should be "Error: Matrix shapes invalid for addition'''
     length1 = len(matrix1)
     length2 = len(matrix2)
     if length1 != length2:
@@ -45,16 +39,14 @@ def add_matrix(matrix1, matrix2):
 
     return add
 
-    
 
 def read_matrix(size):
-    '''
-        read the matrix dimensions from input
+    '''read the matrix dimensions from input
         create a list of lists and read the numbers into it
         in case there are not enough numbers given in the input
         print an error message and return None
-        error message should be "Error: Invalid input for the matrix"
-    '''
+        error message should be "Error: Invalid input for the matrix'''
+
     total = 0
     matrix = []
     val1 = int(size[0])
@@ -66,11 +58,12 @@ def read_matrix(size):
 
 
 def main():
+    ''' This part of the program calls the methods'''
     size1 = input().split(',')
     matrix1, total1 = read_matrix(size1)
     size2 = input().split(',')
     matrix2, total2 = read_matrix(size2)
-    if total1!= total2:
+    if total1 != total2:
         print("Error: Invalid input for the matrix")
     else:
         print(add_matrix(matrix1, matrix2))
