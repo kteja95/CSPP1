@@ -11,7 +11,7 @@ def mult_matrix(matrix1, matrix2, temp1, temp2):
         print("Error: Matrix shapes invalid for mult")
         return None
     mul = []
-    for i in rnage(0, len(matrix1), 1):
+    for i in range(0, len(matrix1), 1):
         temp = []
         for j in range(len(matrix2[0])):
             res = 0
