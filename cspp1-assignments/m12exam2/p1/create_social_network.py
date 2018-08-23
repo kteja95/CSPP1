@@ -48,8 +48,8 @@ def create_social_network(data):
     			split1[index] = values.replace(" ", "")
     		data2.append(split1)
     	for j in data2:
-    		if j[0] != ""
-    		t[j][0] = j[1].split(", ")
+    		if j[0] != "":
+    			t[j][0] = j[1].split(", ")
     	return t
 
 
