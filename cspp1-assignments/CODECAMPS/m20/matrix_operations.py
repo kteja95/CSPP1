@@ -1,5 +1,5 @@
 import copy
-def mult_matrix(m, m2):
+def mult_matrix(matrix1, matrix2, temp1, temp2):
     '''
         check if the matrix1 columns = matrix2 rows
         mult the matrices and return the result matrix
@@ -7,22 +7,24 @@ def mult_matrix(m, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for mult"
     '''
-    if len(m)!= len(m2[0]):
-        print("Error : Matrix shapes invalid for mult")
+    if temp1!=temp2:
+        print("Error: Matrix shapes invalid for mult")
         return None
-    list1 = []
-    for i in range(0, len(m), 1):
-        list2 = []
-        for j in range(0, len(m2[0]), 1):
-            result = 0
-            for k in range(0, len(m2), 1):
-                result += int(m[i][k])*int(m2[k][j])
-            list2.append(result)
-        list1.append(list2)
-    return list1
+    mul = []
+    for i in rnage(0, len(matrix1), 1):
+        temp = []
+        for j in range(len(matrix2[0])):
+            res = 0
+            for k in range(0, len(matrix2), 1):
+                res+= int(matrix1[i][k])*int(matrix2[k][j])
+            temp.append(res)
+        mul.append(temp)
+    return mul
+
+    
 
 
-def add_matrix(m, m2):
+def add_matrix(matrix1, matrix2):
     '''
         check if the matrix shapes are similar
         add the matrices and return the result matrix
@@ -30,20 +32,20 @@ def add_matrix(m, m2):
         and return None
         error message should be "Error: Matrix shapes invalid for addition"
     '''
-    l1 = len(m)
-    l2 = len(m2)
-    if l1!=l2:
+    length1 = len(natrix1)
+    length2 = len(matrix2)
+    if length1 != length2:
         print("Error: Matrix shapes invalid for addition")
         return None
-    else:
-        result = copy.deepcopy(m)
-        for i in range(0, l2, 1):
-            for j in range(0, len(m2[i]), 1):
-                result[i][j] = int(result[i][j])
-                result[i][j] += int(m2[i][j])
-        return result
+    add= copy.deepcopy(matrix1)
+    for i in range(0, length2, 1):
+        for j in range(0, len(length2[i]), 1):
+            add[i][j] = int(add[i][j])
+            add[i][j] += int(matrix2[i][j])
 
+    return add
 
+    
 
 def read_matrix(size):
     '''
@@ -53,31 +55,27 @@ def read_matrix(size):
         print an error message and return None
         error message should be "Error: Invalid input for the matrix"
     '''
-    r = int(size[0])
-    c = int(size[1])
-    t = 0
-    m = []
-    for i in range(0, r, 1):
-        r = input().split()
-        m.append(r)
-        t+=len(r)
-    if t!=r*c:
-        print("Error: Invalid input for the matrix")
-    else:
-        return m
+    total = 0
+    matrix = []
+    val1 = int(size[0])
+    for _ in range(0, val1, 1):
+        row = input().split()
+        matrix.append(row)
+        total+=len(row)
+    return matrix, total
+
 
 def main():
-    num1 = input().split(',')
-    m = read_matrix(num1)
-    num2 = input().split(',')
-    
-    # print(m)
-    m2 = read_matrix(num2)
-    # print(m2)
-    if m == None or m2 == None:
-        return None
-    print(add_matrix(m, m2))
-    print(mult_matrix(m, m2))
+    size1 = input().split(',')
+    matrix1, total1 = read_matrix(size1)
+    size2 = input().split(',')
+    matrix2, total2 = read_matrix(size2)
+    if total1!= total2:
+        print("Error: Invalid input for the matrix")
+    else:
+        print(add_matrix(matrix1, matrix2))
+        print(mult_matrix(matrix1, matrix2, size[1], size[0]))
+
 
 
 
