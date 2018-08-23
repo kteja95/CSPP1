@@ -39,7 +39,7 @@ def add_matrix(matrix1, matrix2):
         return None
     add= copy.deepcopy(matrix1)
     for i in range(0, length2, 1):
-        for j in range(0, len(length2[i]), 1):
+        for j in range(0, len(matrix2[i]), 1):
             add[i][j] = int(add[i][j])
             add[i][j] += int(matrix2[i][j])
 
