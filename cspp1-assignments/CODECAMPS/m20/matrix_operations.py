@@ -74,7 +74,7 @@ def main():
         print("Error: Invalid input for the matrix")
     else:
         print(add_matrix(matrix1, matrix2))
-        print(mult_matrix(matrix1, matrix2, size[1], size[0]))
+        print(mult_matrix(matrix1, matrix2, size1[1], size2[0]))
 
 
 
