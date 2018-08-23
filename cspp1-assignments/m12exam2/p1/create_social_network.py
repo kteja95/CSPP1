@@ -49,7 +49,7 @@ def create_social_network(data):
     	data2.append(split1)
     for j in data2:
     	if j[0] != "":
-    			t[j][0] = j[1].split(", ")
+    			t[j][0] = j[1].split(",")
     return t
 
 
