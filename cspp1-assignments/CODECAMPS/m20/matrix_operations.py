@@ -32,7 +32,7 @@ def add_matrix(matrix1, matrix2):
         and return None
         error message should be "Error: Matrix shapes invalid for addition"
     '''
-    length1 = len(natrix1)
+    length1 = len(matrix1)
     length2 = len(matrix2)
     if length1 != length2:
         print("Error: Matrix shapes invalid for addition")
