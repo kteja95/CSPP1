@@ -59,7 +59,7 @@ def main():
     network = eval(input())
     lines = int(input())
     for i in range(lines):
-        i += 1
+        # i += 1
         line = input()
         output = line.split(" ")
         if output[0] == "follow":
