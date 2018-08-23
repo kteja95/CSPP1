@@ -7,7 +7,7 @@ def mult_matrix(matrix1, matrix2, temp1, temp2):
         and return None
         error message should be "Error: Matrix shapes invalid for mult"
     '''
-    if temp1!=temp2:
+    if temp1 != temp2:
         print("Error: Matrix shapes invalid for mult")
         return None
     mul = []
@@ -16,7 +16,7 @@ def mult_matrix(matrix1, matrix2, temp1, temp2):
         for j in range(len(matrix2[0])):
             res = 0
             for k in range(0, len(matrix2), 1):
-                res+= int(matrix1[i][k])*int(matrix2[k][j])
+                res += int(matrix1[i][k])*int(matrix2[k][j])
             temp.append(res)
         mul.append(temp)
     return mul
@@ -37,7 +37,7 @@ def add_matrix(matrix1, matrix2):
     if length1 != length2:
         print("Error: Matrix shapes invalid for addition")
         return None
-    add= copy.deepcopy(matrix1)
+    add = copy.deepcopy(matrix1)
     for i in range(0, length2, 1):
         for j in range(0, len(matrix2[i]), 1):
             add[i][j] = int(add[i][j])
@@ -61,7 +61,7 @@ def read_matrix(size):
     for _ in range(0, val1, 1):
         row = input().split()
         matrix.append(row)
-        total+=len(row)
+        total += len(row)
     return matrix, total
 
 
