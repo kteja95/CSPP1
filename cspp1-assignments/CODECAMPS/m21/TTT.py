@@ -28,7 +28,7 @@ def tictactoe(matrix1):
 
             elif matrix1[i][j] == matrix1[i+1][j] == matrix1[i+2][j]:
                 unique+=1
-                new.append(matrix1[i][k])
+                new.append(matrix1[i][j])
                 break
 
             elif matrix1[i][j+1] == matrix1[i+1][j+1] == matrix1[i+2][j+1]:
