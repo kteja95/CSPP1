@@ -19,6 +19,7 @@ def tictactoe(matrix1):
             return "invalid game"
         if matrix1[i].count('o') == 3 and matrix1[i+1].count('o') == 3 or matrix1[i+2].count('o') == 3:
             return "invalid game"
+        
 
         
         if matrix1[i].count('.') == 3:
