@@ -53,10 +53,9 @@ def tictactoe(matrix1):
 
 def read_matrix(matlen):
     rows = []
-    row = list()
     for i in range(matlen[0]):
         row = input()
-        row = list(map(int, row.split(' ')))
+        row = list(map(str, row.split(' ')))
         rows.append(row)
     if matlen[0]!=len(rows):
         return None
