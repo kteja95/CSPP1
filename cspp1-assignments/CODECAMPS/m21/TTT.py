@@ -35,7 +35,7 @@ def tictactoe(matrix1):
                 distinct+=1
             elif matrix1[i][k] == matrix1[i+1][k] == matrix1[i+2][k]:
                 count+=1
-                new.append(matrix[i][k])
+                new.append(matrix1[i][k])
                 break
         break
     if elecount >0:
