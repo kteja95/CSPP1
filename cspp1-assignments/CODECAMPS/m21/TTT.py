@@ -13,47 +13,47 @@ def tictactoe(matrix1):
     for i in range(0, len(matrix1), 1):
         if matrix1[i].count('.') == 3:
             del matrix1[i]
-                if matrix1[i+1].count('o')==3:
-                    new = copy.deepcopy(matrix1[i])
-                    ocount+=1
+            if matrix1[i+1].count('o')==3:
+                new = copy.deepcopy(matrix1[i])
+                ocount+=1
                     
-                elif matrix1[i+1].count('x')==3:
-                    new = copy.deepcopy(matrix1[i+1])
-                    xcount+=1
+            elif matrix1[i+1].count('x')==3:
+                new = copy.deepcopy(matrix1[i+1])
+                xcount+=1
                     
-                if matrix1[i+1].count('o')==3 and matrix1[i+2].count('x')==3:
-                    return "invalid game"
-                elif matrix1[i+1].count('x')==3 and matrix1[i+2].count('o')==3:
-                    return "invalid game"
+            if matrix1[i+1].count('o')==3 and matrix1[i+2].count('x')==3:
+                return "invalid game"
+            elif matrix1[i+1].count('x')==3 and matrix1[i+2].count('o')==3:
+                return "invalid game"
         elif matrix1[i+1].count('.') == 3:
             del matrix1[i+1]
-                if matrix1[i+2].count('o') == 3:
-                    new = copy.deepcopy(matrix1[i+2])
-                    ocount+=1
+            if matrix1[i+2].count('o') == 3:
+                new = copy.deepcopy(matrix1[i+2])
+                ocount+=1
                     
-                elif matrix1[i+2].count('x')==3:
-                    new = copy.deepcopy(matrix1[i+2])
-                    xcount+=1
-                if matrix1[i].count('o') == 3 and matrix1[i+2].count('x') == 3:
-                    return "invalid game"
-                elif matrix1[i].count('x') == 3 and matrix1[i+2].count('o') == 3:
-                    return "invalid game"
+            elif matrix1[i+2].count('x')==3:
+                new = copy.deepcopy(matrix1[i+2])
+                xcount+=1
+            if matrix1[i].count('o') == 3 and matrix1[i+2].count('x') == 3:
+                return "invalid game"
+            elif matrix1[i].count('x') == 3 and matrix1[i+2].count('o') == 3:
+                return "invalid game"
 
 
         elif matrix1[i+2].count('.') == 3:
             del matrix1[i+2]
-                if matrix1[i].count('o')==3:
-                    new = copy.deepcopy(matrix1[i])
-                    ocount+=1
+            if matrix1[i].count('o')==3:
+                new = copy.deepcopy(matrix1[i])
+                ocount+=1
                     
-                elif matrix1[i].count('x')==3:
-                    new = copy.deepcopy(matrix1[i+1])
-                    xcount+=1
+            elif matrix1[i].count('x')==3:
+                new = copy.deepcopy(matrix1[i+1])
+                xcount+=1
                     
-                if matrix1[i].count('o')==3 and matrix1[i+1].count('x')==3:
-                    return "invalid game"
-                elif matrix1[i].count('x')==3 and matrix1[i+1].count('o')==3:
-                    return "invalid game" 
+            if matrix1[i].count('o')==3 and matrix1[i+1].count('x')==3:
+                return "invalid game"
+            elif matrix1[i].count('x')==3 and matrix1[i+1].count('o')==3:
+                return "invalid game" 
         for j in range(len(matrix1[i])-1):
             elif matrix1[i][j] == matrix1[i+1][j+1] == matrix1[i+2][j+2]:
                 temp+=1
