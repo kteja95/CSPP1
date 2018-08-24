@@ -16,7 +16,6 @@ def tictactoe(matrix1):
                 if elecount == len(matrix1[i])-1:
                     break
         break
-            
             elif matrix1[i][j] == matrix1[i+1][j+1] == matrix1[i+2][j+2]:
                 temp+=1
                 new = matrix1[i][j]
