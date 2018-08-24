@@ -43,6 +43,9 @@ def tictactoe(matrix1):
             return 'o'
         else:
             return 'x'
+    if elecount == 6:
+        if 'o' and 'x' in set(new):
+            return "invalid game"
     elif temp >0:
         if 'o' in set(new):
             return 'o'
