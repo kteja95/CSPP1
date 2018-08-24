@@ -13,6 +13,10 @@ def tictactoe(matrix1):
     temp = 0
     new = []
     for i in range(0, len(matrix1), 1):
+        if matrix1[i].count('x') == 2 or matrix1[i].count('o') == 2 and matrix1[i+1].count('x') == 2 or matrix1[i+1].count('o') == 2 and matrix1[i+2].count('x') == 2 or matrix1[i+2].count('o') == 2:
+            return "draw"
+
+        
         if matrix1[i].count('.') == 3:
             del matrix1[i]
             if matrix1[i+1].count('o')==3:
