@@ -1,4 +1,5 @@
 import copy
+import math
 def tictactoe(matrix1):
     matlen1 = [3, 3]
     k = matlen1[0]-1
@@ -10,6 +11,10 @@ def tictactoe(matrix1):
     count = 0
     temp = 0
     new = []
+    if matrix1.count('x') == 9 or matrix1.count('o') == 9:
+        return "invalid game"
+    elif matrix1.count('x') - matrix1.count('o') == abs(1):
+        return "draw"
     for i in range(0, len(matrix1), 1):
         if matrix1[i].count('.') == 3:
             del matrix1[i]
@@ -61,6 +66,7 @@ def tictactoe(matrix1):
             xcount+=1
             return 'x'
         for j in range(len(matrix1[i])-1):
+
             if matrix1[i][j] == matrix1[i+1][j+1] and matrix1[i][j] == matrix1[i+2][j+2]:
                 temp+=1
                 new.append(matrix1[i][j])
