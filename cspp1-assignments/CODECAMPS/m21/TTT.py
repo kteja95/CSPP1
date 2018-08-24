@@ -60,19 +60,19 @@ def tictactoe(matrix1):
                 new.append(matrix1[i][j])
                 break
 
-            elif matrix1[i][k] == matrix1[i+1][k-1] == matrix1[i+2][k-2]:
+            elif matrix1[i][k] == matrix1[i+1][k-1] and matrix1[i][k] == matrix1[i+2][k-2]:
                 flag+=1
                 new.append(matrix1[i][k])
                 break
 
-            elif matrix1[i][j] == matrix1[i+1][j] == matrix1[i+2][j]:
+            elif matrix1[i][j] == matrix1[i+1][j] and matrix1[i][j] == matrix1[i+2][j]:
                 unique+=1
                 new.append(matrix1[i][j])
                 break
 
-            elif matrix1[i][j+1] == matrix1[i+1][j+1] == matrix1[i+2][j+1]:
+            elif matrix1[i][j+1] == matrix1[i+1][j+1] and matrix1[i][j+1] == matrix1[i+2][j+1]:
                 distinct+=1
-            elif matrix1[i][k] == matrix1[i+1][k-1] == matrix1[i+2][k-2]:
+            elif matrix1[i][k] == matrix1[i+1][k-1] and matrix1[i][k] == matrix1[i+2][k-2]:
                 count+=1
                 new.append(matrix1[i][k])
                 break
