@@ -1,7 +1,9 @@
+import copy
 def tictactoe(matrix1):
     matlen1 = [3, 3]
     k = matlen1[0]-1
-    elecount = 0
+    ocount = 0
+    xcount =0
     flag = 0
     distinct = 0
     unique = 0
@@ -9,22 +11,50 @@ def tictactoe(matrix1):
     temp = 0
     new = []
     for i in range(0, len(matrix1), 1):
+        if matrix1[i].count('.') == 3:
+            del matrix1[i]
+                if matrix1[i+1].count('o')==3:
+                    new = copy.deepcopy(matrix1[i])
+                    ocount+=1
+                    
+                elif matrix1[i+1].count('x')==3:
+                    new = copy.deepcopy(matrix1[i+1])
+                    xcount+=1
+                    
+                if matrix1[i+1].count('o')==3 and matrix1[i+2].count('x')==3:
+                    return "invalid game"
+                elif matrix1[i+1].count('x')==3 and matrix1[i+2].count('o')==3:
+                    return "invalid game"
+        elif matrix1[i+1].count('.') == 3:
+            del matrix1[i+1]
+                if matrix1[i+2].count('o') == 3:
+                    new = copy.deepcopy(matrix1[i+2])
+                    ocount+=1
+                    
+                elif matrix1[i+2].count('x')==3:
+                    new = copy.deepcopy(matrix1[i+2])
+                    xcount+=1
+                if matrix1[i].count('o') == 3 and matrix1[i+2].count('x') == 3:
+                    return "invalid game"
+                elif matrix1[i].count('x') == 3 and matrix1[i+2].count('o') == 3:
+                    return "invalid game"
+
+
+        elif matrix1[i+2].count('.') == 3:
+            del matrix1[i+2]
+                if matrix1[i].count('o')==3:
+                    new = copy.deepcopy(matrix1[i])
+                    ocount+=1
+                    
+                elif matrix1[i].count('x')==3:
+                    new = copy.deepcopy(matrix1[i+1])
+                    xcount+=1
+                    
+                if matrix1[i].count('o')==3 and matrix1[i+1].count('x')==3:
+                    return "invalid game"
+                elif matrix1[i].count('x')==3 and matrix1[i+1].count('o')==3:
+                    return "invalid game" 
         for j in range(len(matrix1[i])-1):
-            if matrix1[i][j] == matrix1[i][j+1] == matrix1[i][j+2]:
-                elecount+=1
-                new.append(matrix1[i][j])
-                if elecount == len(matrix1[i])-1:
-                    break
-            elif matrix1[i+1][j] == matrix1[i+1][j+1] == matrix1[i+1][j+2]:
-                elecount+=1
-                new.append(matrix1[i+1][j])
-                if elecount == len(matrix1[i+1])-1:
-                    break
-            elif matrix1[i+2][j] == matrix1[i+2][j+1] == matrix1[i+2][j+2]:
-                elecount+=1
-                new.append(matrix1[i+2][j])
-                if elecount == len(matrix1[i+2])-1:
-                    break
             elif matrix1[i][j] == matrix1[i+1][j+1] == matrix1[i+2][j+2]:
                 temp+=1
                 new.append(matrix1[i][j])
@@ -47,14 +77,12 @@ def tictactoe(matrix1):
                 new.append(matrix1[i][k])
                 break
         break
-    if elecount >0:
+    if ocount >0:
         if 'o' in set(new):
             return 'o'
-        else:
+    if xcount>0:
+        if 'x' in set(new):
             return 'x'
-    if elecount == 6:
-        if 'o' and 'x' in set(new):
-            return "invalid game"
     elif temp >0:
         if 'o' in set(new):
             return 'o'
