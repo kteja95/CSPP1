@@ -55,7 +55,7 @@ def tictactoe(matrix1):
             elif matrix1[i].count('x')==3 and matrix1[i+1].count('o')==3:
                 return "invalid game" 
         for j in range(len(matrix1[i])-1):
-            elif matrix1[i][j] == matrix1[i+1][j+1] == matrix1[i+2][j+2]:
+            elif matrix1[i][j] == matrix1[i+1][j+1] and matrix1[i][j] == matrix1[i+2][j+2]:
                 temp+=1
                 new.append(matrix1[i][j])
                 break
