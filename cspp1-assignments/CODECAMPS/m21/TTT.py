@@ -135,13 +135,13 @@ def read_matrix(matlen):
 def main():
     matlen1 = [3, 3]
     matrix1 = read_matrix(matlen1)
-    if matrix1.count('x')-matrix1.count('o') > abs(1) or matrix1.count('x') == 9 or matrix1.count('o')==9:
-        print("invalid game")
-    else:
-        for i in range(0, len(matrix1), 1):
-            if matrix1[i].count('x') == 2 or matrix1.count('o') == 2:
-                continue
-        print("draw")
+    # if matrix1.count('x')-matrix1.count('o') > abs(1) or matrix1.count('x') == 9 or matrix1.count('o')==9:
+    #     print("invalid game")
+    # else:
+    #     for i in range(0, len(matrix1), 1):
+    #         if matrix1[i].count('x') == 2 or matrix1.count('o') == 2:
+    #             continue
+    #     print("draw")
     print(tictactoe(matrix1))
 
 if __name__ == '__main__':
