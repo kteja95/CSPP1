@@ -12,33 +12,30 @@ def tictactoe(matrix1):
         for j in range(len(matrix[i])-1):
             if matrix1[i][j] == matrix1[i][j+1]:
                 elecount+=1
-                new = matrix1[i][j]
+                new.append(matrix1[i][j])
                 if elecount == len(matrix1[i])-1:
                     break
-        break
+
             elif matrix1[i][j] == matrix1[i+1][j+1] == matrix1[i+2][j+2]:
                 temp+=1
-                new = matrix1[i][j]
+                new.append(matrix1[i][j])
                 break
-        break
+
             elif matrix1[i][k] == matrix1[i+1][k-1] == matrix1[i+2][k-2]:
                 flag+=1
-                new = matrix1[i][l]
+                new.append(matrix1[i][k])
                 break
-        break
+
             elif matrix1[i][j] == matrix1[i+1][j] == matrix1[i+2][j]:
                 unique+=1
-                new = matrix1[i][k]
+                new.append(matrix1[i][k])
                 break
-        break
+
             elif matrix1[i][j+1] == matrix1[i+1][j+1] == matrix1[i+2][j+1]:
                 distinct+=1
-                new = matrix1[i][j]
-                break 
-        break
             elif matrix[i][k] == matrix[i+1][k] == matrix[i+2][k]:
                 count+=1
-                new = matrix[i][k]
+                new.append(matrix[i][k])
                 break
         break
     if elecount >0:
@@ -56,7 +53,7 @@ def tictactoe(matrix1):
 
 def read_matrix(matlen):
     rows = []
-    for i in matlen[0]:
+    for i in range(matlen[0]):
         row = input()
         row = list(map(int, row.split(' ')))
         rows.append(row)
