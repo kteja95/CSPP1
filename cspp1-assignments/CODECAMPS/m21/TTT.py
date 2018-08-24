@@ -33,24 +33,42 @@ def tictactoe(matrix1):
 
             elif matrix1[i][j+1] == matrix1[i+1][j+1] == matrix1[i+2][j+1]:
                 distinct+=1
-            elif matrix[i][k] == matrix[i+1][k] == matrix[i+2][k]:
+            elif matrix1[i][k] == matrix1[i+1][k] == matrix1[i+2][k]:
                 count+=1
                 new.append(matrix[i][k])
                 break
         break
     if elecount >0:
-        return set(new)
+        if 'o' in set(new):
+            return 'o'
+        else:
+            return 'x'
     elif temp >0:
-        return set(new)
+        if 'o' in set(new):
+            return 'o'
+        else:
+            return 'x'
     elif flag >0:
-        return set(new)
+        if 'o' in set(new):
+            return 'o'
+        else:
+            return 'x'
     elif unique >0:
-        return set(new)
+        if 'o' in set(new):
+            return 'o'
+        else:
+            return 'x'
     elif distinct >0:
-        return set(new)
+        if 'o' in set(new):
+            return 'o'
+        else:
+            return 'x'
     elif count >0:
-        return set(new)
-
+        if 'o' in set(new):
+            return 'o'
+        else:
+            return 'x'
+        
 def read_matrix(matlen):
     rows = []
     for i in range(matlen[0]):
