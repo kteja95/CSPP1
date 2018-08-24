@@ -10,14 +10,21 @@ def tictactoe(matrix1):
     new = []
     for i in range(0, len(matrix1), 1):
         for j in range(len(matrix1[i])-1):
-            if matrix1[i][j] == matrix1[i][j+1]:
+            if matrix1[i][j] == matrix1[i][j+1] == matrix1[i][j+2]:
                 elecount+=1
                 new.append(matrix1[i][j])
                 if elecount == len(matrix1[i])-1:
                     break
-            else:
-                break
-
+            elif matrix1[i+1][j] == matrix1[i+1][j+1] == matrix1[i+1][j+2]:
+                elecount+=1
+                new.append(matrix1[i][j])
+                if elecount == len(matrix1[i])-1:
+                    break
+            elif matrix1[i+2][j] == matrix1[i+2][j+1] == matrix1[i+2][j+2]:
+                elecount+=1
+                new.append(matrix1[i][j])
+                if elecount == len(matrix1[i])-1:
+                    break
             elif matrix1[i][j] == matrix1[i+1][j+1] == matrix1[i+2][j+2]:
                 temp+=1
                 new.append(matrix1[i][j])
