@@ -15,10 +15,10 @@ def tictactoe(matrix1):
     for i in range(0, len(matrix1), 1):
         if matrix1[i].count('x') == 2 or matrix1[i].count('o') == 2 and matrix1[i+1].count('x') == 2 or matrix1[i+1].count('o') == 2 and matrix1[i+2].count('x') == 2 or matrix1[i+2].count('o') == 2:
             return "draw"
-        if matrix1[i].count('x') == 3 or matrix1[i+1].count('x') == 3 or matrix1[i+2].count('x') == 3:
-            return "invalid game"
-        if matrix1[i].count('o') == 3 or matrix1[i+1].count('o') == 3 or matrix1[i+2].count('o') == 3:
-            return "invalid game"
+        # if matrix1[i].count('x') == 3 and matrix1[i+1].count('x') == 3 or matrix1[i+2].count('x') == 3:
+        #     return "invalid game"
+        # if matrix1[i].count('o') == 3 and matrix1[i+1].count('o') == 3 or matrix1[i+2].count('o') == 3:
+        #     return "invalid game"
 
         
         if matrix1[i].count('.') == 3:
@@ -71,7 +71,8 @@ def tictactoe(matrix1):
             xcount+=1
             return 'x'
         for j in range(len(matrix1[i])-1):
-
+            if matrix1[i][j]!='x' or matrix1[i][j]!='o':
+                return "invalid game"
             if matrix1[i][j] == matrix1[i+1][j+1] and matrix1[i][j] == matrix1[i+2][j+2]:
                 temp+=1
                 new.append(matrix1[i][j])
