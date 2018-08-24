@@ -14,7 +14,7 @@ def tictactoe(matrix1):
     new = []
     if matrix1.count('x') == 9 or matrix1.count('o') == 9:
         print("invalid game")
-    elif matrix1.count('x') - matrix1.count('o') == abs(1):
+    elif matrix1.count('x') - matrix1.count('o') == abs(1) or abs(3):
         print("draw")
     for i in range(0, len(matrix1), 1):
         if matrix1[i].count('.') == 3:
