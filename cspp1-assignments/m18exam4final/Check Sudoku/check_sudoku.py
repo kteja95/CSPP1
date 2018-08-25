@@ -64,10 +64,10 @@ def check_sudoku(sudoku):
     if not nine_by_nine(sudoku) or not all_digits(sudoku):
       return None
     for i in range(0, 9):
-      if not check_row(sudoku, i):
+        if not check_row(sudoku, i):
           return False
-      if not check_column(sudoku, i):
-          return False
+        if not check_column(sudoku, i):
+            return False
     for i in range(0, 7, 3):
       for j in range(0, 7, 3):
         if not check_subgrid(sudoku, i, j):
