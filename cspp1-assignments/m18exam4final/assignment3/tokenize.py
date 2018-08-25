@@ -5,7 +5,7 @@ each word
 import re
 def tokenize(string):
     dict1 = {}
-    text = re.sub(r'[^a-zA-Z]', " ", string)
+    text = re.sub(r'[^a-zA-Z0-9]', " ", string)
     words = text.split()
     for items in words:
         if items in dict1:
