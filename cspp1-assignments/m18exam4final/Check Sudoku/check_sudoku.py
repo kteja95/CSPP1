@@ -7,27 +7,27 @@
     Complete the check_sudoku function to check if the given grid
     satisfies all the sudoku rules given in the statement above.
 '''
-def check_row(sudoku, row):
+def checkrow(sudoku, row):
     nineGrouping = []
-    for cell in grid[row]:
+    for cell in sudoku[row]:
         nineGrouping.append(cell)
-    return check_no_dups(nineGrouping)
+    return checknoduplicates(nineGrouping)
 
-def check_column(sudoku, column):
+def checkcolumn(sudoku, column):
     nineGrouping = []
-    for row in grid:
+    for row in sudoku:
         nineGrouping.append(row[column])
     return check_no_dups(nineGrouping) 
 
-def check_subgrid(sudoku, row, column):
+def checksubgrid(sudoku, row, column):
     nineGrouping = []
     for i in range(row, row + 3):
         for j in range(column, column + 3):
-            nineGrouping.append(grid[i][j])
+            nineGrouping.append(sudoku[i][j])
     return check_no_dups(nineGrouping)
 
 
-def check_no_dups(nineGrouping):  
+def checkduplicatess(nineGrouping):  
     uniqueDigits = set()
     for num in nineGrouping:
       if num != 0:
@@ -36,7 +36,7 @@ def check_no_dups(nineGrouping):
       uniqueDigits.add(num)
     return True
 
-def all_digits(sudoku):
+def alldigits(sudoku):
     for row in sudoku:
         for cell in row:
             try:
@@ -46,7 +46,7 @@ def all_digits(sudoku):
             except:
                 return False
     return True   
-def nine_by_nine(sudoku):
+def ninenine(sudoku):
     if not sudoku:
         return False
     if len(sudoku) != 9:
@@ -61,16 +61,16 @@ def check_sudoku(sudoku):
         Your solution goes here. You may add other helper functions as needed.
         The function has to return True for a valid sudoku grid and false otherwise
     '''
-    if not nine_by_nine(sudoku) or not all_digits(sudoku):
+    if not ninenine(sudoku) or not alldigits(sudoku):
       return None
     for i in range(0, 9):
-        if not check_row(sudoku, i):
+        if not checkrow(sudoku, i):
           return False
-        if not check_column(sudoku, i):
+        if not checkcolumn(sudoku, i):
             return False
     for i in range(0, 7, 3):
       for j in range(0, 7, 3):
-        if not check_subgrid(sudoku, i, j):
+        if not checksubgrid(sudoku, i, j):
           return False
 
     return True
