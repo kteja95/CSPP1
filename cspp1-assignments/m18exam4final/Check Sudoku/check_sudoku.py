@@ -17,14 +17,14 @@ def checkcolumn(sudoku, column):
     nineGrouping = []
     for row in sudoku:
         nineGrouping.append(row[column])
-    return check_no_dups(nineGrouping) 
+    return checknoduplicates(nineGrouping) 
 
 def checksubgrid(sudoku, row, column):
     nineGrouping = []
     for i in range(row, row + 3):
         for j in range(column, column + 3):
             nineGrouping.append(sudoku[i][j])
-    return check_no_dups(nineGrouping)
+    return checknoduplicates(nineGrouping)
 
 
 def checkduplicatess(nineGrouping):  
@@ -62,7 +62,7 @@ def check_sudoku(sudoku):
         The function has to return True for a valid sudoku grid and false otherwise
     '''
     if not ninenine(sudoku) or not alldigits(sudoku):
-      return None
+      return False
     for i in range(0, 9):
         if not checkrow(sudoku, i):
           return False
