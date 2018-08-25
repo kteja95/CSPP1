@@ -4,6 +4,7 @@ each word
 '''
 import re
 def tokenize(string):
+    '''THIS FUNCTION RETURNS THE DICTIONARY'''
     dict1 = {}
     text = re.sub(r'[^a-zA-Z0-9]', " ", string)
     words = text.split()
@@ -14,12 +15,10 @@ def tokenize(string):
             dict1[items] = 1
     return dict1
 
- 
-            
 def main():
-    string = '' 
+    '''THE MAIN FUNCTION HERE PASSES THE STRING TO THE FUCNTION'''
     lines = int(input())
-    for i in range(lines):
+    for _ in range(lines):
         text = ''.join(input())
         print(tokenize(text))
 
