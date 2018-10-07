@@ -1,38 +1,36 @@
-''' THE PROGRAM PRINTS THE MINUMUM AMOUNT NEEDED TO CLEAR THE LOAN WITH MORE ACCURATE ALGO'''
-
-def calculate(month, balance, minPay, monthlyInterestRate):
-    while month <12:
-        unpaidBalance = balance - minPay
-        balance = unpaidBalance + (monthlyInterestRate * unpaidBalance)
+'''Functions - Assignment-3 - Using Bisection Search to Make the Program Faster'''
+def cal(month, balance, mid, monthlyinterestrate):
+    '''caluclate mid for each year'''
+    while month < 12:
+        monthlyunpaidbalance = balance - mid
+        balance = monthlyunpaidbalance + (monthlyinterestrate * monthlyunpaidbalance)
         month += 1
-    return balance   
-def payingDebtOffInAYear(balance, annualInterestRate):
-    initBalance = balance
-    monthlyInterestRate = annualInterestRate/12.0
-    low = balance/12.0
-    high = (balance * ((1.0 + monthlyInterestRate)**12))/12.0
-    epsilon = 0.01
-    minPay = (high + low)/2.0
+    return balance
+def payingdebtoffinayear(balance, annualinterestrate):
+    '''returns mid'''
+    bal = balance
+    monthlyinterestrate = annualinterestrate / 12.0
+    mlb = balance / 12
+    mub = (balance * ((1 + monthlyinterestrate) ** 12)) / 12.0
+    mid = (mlb + mub) / 2.0
+    epsilon = 0.0001
     month = 0
     while abs(balance) >= epsilon:
-        balance = initBalance
+        balance = bal
         month = 0
-        balance = calculate(month, balance, minPay, monthlyInterestRate)
+        balance = cal(month, balance, mid, monthlyinterestrate)
         if balance > 0:
-            low = minPay
+            mlb = mid
         else:
-            high = minPay
-        minPay = (high + low)/2.0
-    minPay = round(minPay,2)
-    print('Lowest Payment: ' + str(minPay))
-
-
+            mub = mid
+        mid = (mlb + mub) / 2.0
+    return str(round(mid, 2))
 def main():
+    '''Using Bisection Search to Make the Program Faster'''
     data = input()
     # data = "4773 0.2"
     data = data.split(' ')
     data = list(map(float, data))
-    print(payingDebtOffInAYear(data[0],data[1]))
-    
-if __name__== "__main__":
+    print("Lowest Payment:", payingdebtoffinayear(data[0], data[1]))
+if __name__ == "__main__":
     main()
